@@ -1,0 +1,137 @@
+The Wine development release 4.0-rc2 is now available.
+
+What's new in this release (see below for details):
+  - Bug fixes only, we are in code freeze.
+
+The source is available from the following locations:
+
+  https://dl.winehq.org/wine/source/4.0/wine-4.0-rc2.tar.xz
+  http://mirrors.ibiblio.org/wine/source/4.0/wine-4.0-rc2.tar.xz
+
+Binary packages for various distributions will be available from:
+
+  https://www.winehq.org/download
+
+You will find documentation on https://www.winehq.org/documentation
+
+You can also get the current source directly from the git
+repository. Check https://www.winehq.org/git for details.
+
+Wine is available thanks to the work of many people. See the file
+AUTHORS in the distribution for the complete list.
+
+----------------------------------------------------------------
+
+Bugs fixed in 4.0-rc2 (total 11):
+
+  19184  File copying fails during installation of Mordor
+  23282  SpeQ: Wrong coded linefeed
+  25734  Magic: The Gathering Battlegrounds trial hangs upon startup
+  36430  valgrind shows a possible leak in shell32/tests/autocomplete.c
+  39736  Prototype 2 crashes
+  41992  total commander, copy dialog - Esc key not working
+  43178  Prototype regression
+  43676  Hitman(TM) requires session_set_option - option 84
+  44229  Visual C++ 1.51 can't add files to project (GetOpenFileName16() doesn't support custom templates or hooks)
+  46231  Button tests for ideal size fail on Arabic locale on Windows
+  46270  ReactOS explorer.exe can't delete objects (use-after free caused by incorrect free in STGMEDIUM_Release())
+
+----------------------------------------------------------------
+
+Changes since 4.0-rc1:
+
+Akihiro Sagawa (2):
+      tzres: Make resources translatable.
+      advapi32: Load a resource dll as data file in RegLoadMUIStringW.
+
+Alex Henrie (2):
+      wineps.drv: Make constant 'glyph_def' static.
+      msvcp90: Turn two static variables into constants.
+
+Alexandre Julliard (12):
+      dinput/tests: Try harder to avoid spurious keyboard input.
+      user32/tests: Fix some test failures on latest Windows 10.
+      setupapi/tests: Fix a test failure on latest Windows 10.
+      ntdll/tests: Fix a test crash on latest Windows 10.
+      cmd/tests: Fix test failures on latest Windows 10.
+      commdlg: Add support for 16-bit file dialog hooks.
+      winspool.drv: Make cupsGetPPD optional to work around deprecation warning.
+      msvcrt: Export onexit functions for compatibility with Mingw.
+      msvcrt: Fix __p__fmode() prototype.
+      msvcrt: Add some more MSVCRT prefixes to avoid conflicts with recent Mingw.
+      winedbg: Fix incorrect pointer casts.
+      comctl32/tests: Avoid a structure initialization warning.
+
+Alistair Leslie-Hughes (1):
+      user32/edit: Don't set caret position when we don't have focus.
+
+Andrey Gusev (2):
+      po: Update Ukrainian translation.
+      riched20: Remove redundant comparison.
+
+Daniel Lehman (1):
+      msvcrt/tests: Add tests for C locale.
+
+Dmitry Timoshkov (5):
+      gdi32/tests: Add a simple test for printing to a PostScript device.
+      gdi32: Trace full contents of DOCINFO in StartDoc.
+      include: Add _Deref_ret_z_ stub definition.
+      comctl32/tests: Fix a test failure under Windows 7.
+      comctl32/tests: Add a test to check built-in comctl32 classes.
+
+Eberhard Beilharz (1):
+      comctl32/imagelist: Fix crash with large number of images.
+
+Fabian Maurer (3):
+      riched20: Extract handling of VK_RETURN into a method.
+      riched20/tests: Refactor tests testing VK_RETURN.
+      riched32: Handle enter press in WM_CHAR instead of WM_KEYDOWN.
+
+François Gouget (6):
+      user32/tests: Make test_LoadImage_working_directory_run() static.
+      rpcrt4/tests: Make create_server_process() static.
+      dbghelp: Make symt_get_best_at() static.
+      shell32: Avoid an unneeded strlenW() call.
+      winetest: Tweak the wording of an error message.
+      cryptui: Avoid an unneeded strlen() call.
+
+Gabriel Ivăncescu (1):
+      user32: Fix tracking position for non-client scrollbars.
+
+Huw D. M. Davies (1):
+      ole32: Don't free handles that are just copied in the inproc case.
+
+Kai Krakow (1):
+      winebus.sys: Re-add missing Xbox controller PIDs.
+
+Ken Thomases (1):
+      configure: Fix building of the preloader on the Mac using Xcode 10 or later.
+
+Michael Stefaniuc (1):
+      shell32: Use SetRect() instead of open coding it.
+
+Nikolay Sivov (10):
+      comctl32/tests: Use actual text width for ideal button size tests.
+      po: Update Russian translation.
+      dwrite/tests: Fix some leaks (Valgrind).
+      inetcomm: Fix a leak on DeleteProp() (Valgrind).
+      kernelbase/tests: Fix some leaks (Valgrind).
+      shcore: Fix path string leak for file streams (Valgrind).
+      usp10/tests: Test width returned with ScriptGetGlyphABCWidth().
+      usp10: Use glyph index consistently in ScriptGetGlyphABCWidth().
+      usp10: Make sure metrics cache is used with glyph indices only.
+      usp10: Remove extra parentheses.
+
+Waritnan Sookbuntherng (3):
+      comctl32/tests: Test status bar size grip behavior and bounds.
+      comctl32/status: Hide size grip when the parent window is maximized.
+      comctl32/status: Checking size grip bounds in x-axis only.
+
+Zebediah Figura (3):
+      devenum/tests: Fix some memory leaks (Valgrind).
+      mp3dmod: Fix a memory leak (Valgrind).
+      ntdll/tests: Fix a memory leak (Valgrind).
+
+--
+Alexandre Julliard
+julliard@winehq.org

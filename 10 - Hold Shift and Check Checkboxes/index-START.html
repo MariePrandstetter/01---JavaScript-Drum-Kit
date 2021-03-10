@@ -6,7 +6,6 @@
 </head>
 <body>
   <style>
-
     html {
       font-family: sans-serif;
       background: #ffc600;
@@ -95,30 +94,26 @@
     </div>
   </div>
 
-<script>
+  <script>
+    const checkboxes = document.querySelectorAll('.inbox [type="checkbox"]');
+    let lastChecked;
 
-const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
-
-let lastChecked;
-
-function handleCheck(e) {
-  let inBetween = false;
-  if(e.shiftKey && this.checked) {
-    checkboxes.forEach(checkbox => {
-      if (checkbox === this || checkbox === lastChecked) {
-        inBetween = !inBetween;
+    function handleCheck(e) {
+      let inBetween = false;
+      if (e.shiftKey && this.checked) {
+        checkboxes.forEach(checkbox => {
+          if (checkbox === this || checkbox === lastChecked) {
+            inBetween = !inBetween;
+          }
+          if (inBetween) {
+            checkbox.checked = true;
+          }
+        });
       }
+      lastChecked = this;
+    }
 
-      if (inBetween) {
-        checkbox.checked = true;
-      }
-    });
-  }
-  lastChecked = this;
-}
-
-checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck));
-
-</script>
+    checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck));
+  </script>
 </body>
 </html>

@@ -14,12 +14,13 @@
   window.addEventListener('keyup', (e) => {
     console.log(e.key);
     pressed.push(e.key);
-    pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
-    if(pressed.join('').includes(secretCode)) {
-      console.log("YAY");
-      cornify_add();
-    }
     console.log(pressed);
+    pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length); // je comprends pas pk le -secretCode, et pk on considère que c'est 6 caractères, et pk on fait -1
+    // pressed.join(''); pk on ne peut pas mettre cette methode ici
+      if(pressed.join('').includes(secretCode)) {
+        console.log('DING DING');
+        cornify_add();
+      }
   });
 
 </script>

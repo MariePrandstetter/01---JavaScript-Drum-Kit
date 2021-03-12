@@ -131,14 +131,19 @@
       this.classList.toggle('open');
     }
 
-    const toggleActive = function toggleActive(e) {
-      if(e.propertyName.includes('flex')) {
+    const toggleActive = function (e) {
+      if (e.propertyName.includes('flex')) {
         this.classList.toggle('open-active');
       }
     }
 
     panels.forEach(panel => panel.addEventListener('click', toggle));
     panels.forEach(panel => panel.addEventListener('transitionned', toggleActive));
+
+    panels.forEach(panel => {
+      panel.addEventListener('click', toggle)
+      panel.addEventListener('transitionned', toggleActive)
+    })
 
   </script>
 

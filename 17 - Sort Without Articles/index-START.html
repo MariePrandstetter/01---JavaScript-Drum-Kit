@@ -53,20 +53,39 @@ const bands = ['The Plot in You', 'The Devil Wears Prada',
 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
 
 
+// remove the article
+// sort the array
+// insert the sorted array in the html
+
+
+
+// function removeArticle(words) {
+//   // const articles = ["The", "A", "An"];
+//   words.replace("The", '');
+//   return words;
+// }
+
+// // function sort(a, b) {
+// //   a - b = c;
+// //   return c;
+// // }
+
+// bands.removeArticle();
+
 function strip(bandName) {
-  return bandName.replace(/^(a |the |an )/i, '').trim();
+  return bandName.replace(/^(a |the |an)/i, '').trim(); // pk le fait d'enlever l'espace fait qu'on skip les mots qui commencent pas ces lettres ?
 }
 
-
+// const sortedBands = bands.sort(a, b => strip(a) - strip(b)); quelle est la diff avec la fonction suivante
 const sortedBands = bands.sort((a, b) => strip(a) > strip(b) ? 1 : -1);
+
+
+console.log(sortedBands);
 
 document.querySelector('#bands').innerHTML =
   sortedBands
     .map(band => `<li>${band}</li>`)
     .join('');
-
-  console.log(sortedBands);
-
 
 </script>
 

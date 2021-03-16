@@ -185,21 +185,20 @@
 
   const timeNodes = Array.from(document.querySelectorAll('[data-time]'));
 
-
   const seconds = timeNodes
     .map(node => node.dataset.time)
     .map(timeCode => {
-      const [mins, secs] = timeCode.split(':').map(parseFloat);
+      const [mins, secs] = timeCode.split(':').map(parseFloat); // quand on utilise map on est pas sensé mettre un callback ?
       return (mins * 60) + secs;
     })
-    .reduce((total, VidSeconds) => total + VidSeconds);
+    .reduce((total, Vidseconds) => total + Vidseconds); // pk la ligne précédente ne suffit pas ? pk additionner au total ?
 
     let secondsLeft = seconds;
     const hours = Math.floor(secondsLeft / 3600);
-    secondsLeft = secondsLeft % 3600;
+    secondsLeft = secondsLeft % 3600; // quand c'est un let, pas besoin de re écrire "let" au début ?
 
     const mins = Math.floor(secondsLeft / 60);
-    secondsLeft = secondsLeft % 60;
+    secondsLeft = secondsLeft % 60; // mais du coup si on fait ça ça change pas la valeur ? comment il sait qu'on additionne la valeur d'avant avec le reste qu'on a ici ?
 
     console.log(hours, mins, secondsLeft);
 

@@ -55,6 +55,23 @@
 
 <script>
 
+  const nav = document.querySelector("#main");
+  const navPosition = nav.offsetTop;
+
+  // pour moi le pb était réglé en modifiant le css et en mettant position: sticky. Par contre elle se met en sticky si on scroll vers le bas quand on arrive dessus,
+  // alors que normalement elle devrait juste être sticky et positionnée en haut de la page
+
+  function fixNav() {
+    if(window.scrollY >= navPosition) {
+      document.body.classList.add('fixed-nav');
+    } else {
+      document.body.classList.remove('fixed-nav');
+    }
+    console.log(navPosition, window.scrollY);
+  }
+
+  window.addEventListener('scroll', fixNav);
+
 </script>
 
 </body>

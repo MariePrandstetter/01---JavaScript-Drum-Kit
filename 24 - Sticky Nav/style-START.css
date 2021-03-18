@@ -46,7 +46,7 @@ nav {
   top: 0;
   width: 100%;
   transition: all 0.5s;
-  position: relative;
+  position: sticky;
   z-index: 1;
 }
 
@@ -72,6 +72,10 @@ li.logo {
   transition: all .5s;
   font-weight: 600;
   font-size: 30px;
+}
+
+.fixed-nav li.logo {
+  max-width: 500px;
 }
 
 li.logo a {
